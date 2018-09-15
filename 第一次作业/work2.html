@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#left{
+			float:left;
+			display: block;
+			background: blue;
+			width: 50%;
+			height:50px;
+			text-align: center;
+			padding-top:20px;
+		}
+		#right{
+			float:left;
+			display: block;
+			background: black;
+			width: 50%;
+			height:50px;
+			text-align: center;
+			padding-top:20px;
+		}
+		ul{
+			overflow: visible;
+			height:75px;
+			margin-left:0px;
+			padding: 0px;
+		}
+		.header{
+			text-decoration: none;
+			color: white;
+			width:100%;
+			height:75px;
+			float:left;
+			margin:0 auto;
+			display: block;
+		}
+		#header{
+			height:75px;
+			margin:0 auto;
+			text-align: center;
+			width: 100%;
+			padding:0px;
+		}
+		#article{
+			margin: 0 auto;
+			background: #ccc;
+			height: 400px;
+			padding:0px;
+		}
+		#play1{
+			float: right;
+			text-decoration: underline;
+		}
+		#play2{
+			float: right;
+			text-decoration: underline;
+		}
+		.player{
+			width:80%;
+			margin:0 auto;
+		}
+		#music1{
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			padding-top: 60px;
+		}
+		#music2{
+			display: none;
+			margin: 0 auto;
+			text-align: center;
+			padding-top: 60px;
+		}
+		#footer{
+			padding: 0;
+			margin:0;
+			background: #ccc;
+			height:110%;
+		}
+	</style>
+	<body>
+		<div id="article">
+			<div id="header">
+				<ul>
+					<li id="left"><a href="#" class="header">在线音乐</a></li>
+					<li id="right"><a href="#" class="header">本地音乐</a></li>
+				</ul>
+			</div>
+			<div class="player">千千阙歌<a id="play1" href="#" onclick="fun1()">播放</a></div>
+			<div class="player">思念人之屋<a id="play2" href="#" onclick="fun2()">播放</a></div>
+		</div>
+		<div id="footer">
+			<div id="music1">
+				<audio src="01.mp3" controls="controls" id="audio1"></audio>
+			</div>
+			<div id="music2">
+				<audio src="02.mp3" controls="controls" id="audio2"></audio>
+			</div>
+		</div>
+	</body>
+	<script>
+		function fun1(){
+			var b=document.getElementById('music1');
+			b.style.display="block";
+			var c=document.getElementById('music2');
+			c.style.display="none";
+			var d=document.getElementById('audio1');
+			var e=document.getElementById('audio2');
+			var a=document.getElementById('play1');
+			var a1=document.getElementById('play2');
+			if(a.innerHTML=='播放'){
+				a.innerHTML='暂停';
+				d.play();
+				e.pause();
+			}
+			else{
+				a.innerHTML='播放';
+				d.pause();
+			}
+			if(a1.innerHTML=='暂停'){
+				a1.innerHTML='播放';
+				e.load();
+			}
+		}
+		function fun2(){
+			var b=document.getElementById('music2');
+			b.style.display="block";
+			var c=document.getElementById('music1');
+			c.style.display="none";
+			var a=document.getElementById('play2');
+			var d=document.getElementById('audio2');
+			var e=document.getElementById('audio1');
+			var a1=document.getElementById('play1');
+			if(a.innerHTML=='播放'){
+				a.innerHTML='暂停';
+				d.play();
+				e.pause();
+			}
+			else{
+				a.innerHTML='播放';
+				d.pause();
+			}
+			if(a1.innerHTML=='暂停'){
+				a1.innerHTML='播放';
+				e.load();
+			}
+		}
+	</script>
+</html>
