@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		legend{
+			color: red;
+		}
+		#undefined_n{
+			color: red; 
+		}
+		#name{
+			float:none
+		}
+		.div{
+			display:inline;
+			color: red;
+		}
+		
+	</style>
+	
+	<body>
+	<form>
+		<h1>请填写个人信息</h1>
+		<fieldset>
+			<legend>基本信息</legend>
+			姓名 <input type="text" placeholder="请输入姓名" class="style"/><div class="div"> *</div>
+			<br />年龄 <input type="number" min="1" max="100" step="1" value="20"/>
+		</fieldset>
+		<br />
+		<fieldset>
+			<legend>你想在哪里收到邮件？</legend>
+			邮箱 <input type="search" placeholder="请输入邮箱" autocomplete="off" list="email" id="youxiang" onkeyup="fun()" />
+			<div class="div"> *</div>
+			<datalist id="email">
+				<option id="option" value="@qq.com"/>
+				<option id="option1" value="@163.com">
+				<option id="option2" value="@126.com">
+				<option id="option3" value="@yahoo.com">
+				<option id="option4" value="@gmail.com">
+			</datalist>
+		</fieldset>
+		<br />
+		<fieldset>
+			<legend>收入情况</legend>
+			月收入 <input type="text" list="income"/>
+			<datalist id="income">
+				<option value="20k+"/>
+				<option value="30k+"/>
+				<option value="10k+"/>
+				<option value="40k+"/>
+			</datalist>
+			<br />银行卡 <input type="text"/> 有效期 <input type="date" />
+		</fieldset>
+		<br />
+		<fieldset>
+			<legend>选取提交文件</legend>
+			文件 <input type="file" multiple="multiple"/>
+		</fieldset>
+		<br />
+		<input type="button" value="提交" onclick="fun1()"/>
+	</form>
+	</body>
+	<script>
+		var txt1;
+		
+		var reg=/^[a-z]+^[A-Z]+[0-9]+@+(qq|163|126|yahoo|gmail)+.com/g;
+		function fun1(){
+			var txt=document.getElementById('youxiang').value;
+			if(reg.test(String(txt))==false){
+				alert('请输入正确的邮箱地址');
+			}
+		}
+		
+		
+		var count=0;
+		var a='';
+		function fun(){
+			count=count+1;
+			txt1=document.getElementById('youxiang').value;
+			for(var i=count-1;i==count-1;i++){
+				var b=String(txt1);
+				a=a+b[i];
+				document.getElementById('option').value=a+'@qq.com';
+				document.getElementById('option1').value=a+'@163.com';
+				document.getElementById('option2').value=a+'@126.com';
+				document.getElementById('option3').value=a+'@yahoo.com';
+				document.getElementById('option4').value=a+'@gmail.com';
+			}
+			
+		}
+	</script>
+</html>
