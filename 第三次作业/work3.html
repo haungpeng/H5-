@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		th div{
+			float: left;
+			margin: 20px;
+			height: 20px;
+			width: 20px;
+		}
+		fieldset{
+			width: 70%;
+			margin: 0 auto;
+			font-size: 30px;
+		}
+	</style>
+	<body>
+		<fieldset>
+			<legend style="color:red;" >页面换肤</legend>
+			<table border="1" cellpadding="0" cellspacing="0" bordercolor="#aaa" width="100%">
+				<tr>
+					<th>
+						<div style="background: gray;" onclick="change('gray')" id="gray"></div>
+						<div style="background: purple;" onclick="change('purple')" id="purple"></div>
+						<div style="background: red;" onclick="change('red')" id="red"></div>
+						<div style="background: blue;" onclick="change('blue')" id="blue"></div>
+						<div style="background: yellow;" onclick="change('yellow')" id="yellow"></div>
+						<div style="background: green;" onclick="change('green')" id="green"></div>
+					</th>
+				</tr>
+			</table>
+			<br />
+			<span>LocalStorage将数据保存在客户端本地的硬件设备中，即是浏览器被关闭了，该数据依然存在，下次打开浏览器访问网栈时任然可以继续使用</span>
+		</fieldset>
+	</body>
+	<script>
+//		localStorage.clear();
+		var div3=document.getElementsByTagName('span');
+		window.onload=function(){
+			div3[0].setAttribute('style','display:block;background:'+localStorage.getItem('color')+';');
+			change(localStorage.getItem('color'));
+		}
+		function change(color){
+			var colors=['gray','purple','red','blue','yellow','green'];
+			var div2=document.getElementsByTagName('div');
+//			console.log(div2[0].id);
+			var div1=document.getElementById(color);
+//			console.log(div1.id);
+			
+			div1.setAttribute('style','margin:10px 20px 30px 20px; width: 20px;height: 20px;float: left;background: '+ color +';');
+			for(var i=0;i<6;i++){
+				if(colors[i]!=color){
+					for(var j=0;j<6;j++){
+						div2[i].setAttribute('style','margin:20px; width: 20px;height: 20px;float: left;background: '+colors[i]+';')
+					}
+				}
+			}
+			localStorage.setItem('color',color);
+			div3[0].setAttribute('style','display:block;background:'+localStorage.getItem('color')+';');
+//			var a=window.localStorage;
+//			console.log(a.key(0));
+		}
+	</script>
+</html>
