@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="file" id="file" multiple="multiple">
+		<input type="button" value="点击上传文件" onclick="showName()">
+	</body>
+	<script>
+		function showName(){
+			var file=document.getElementById('file');
+			for(var i=0;i<file.files.length;i++){
+				console.log(file.files[i].size);
+			}
+		}
+	</script>
+</html>
