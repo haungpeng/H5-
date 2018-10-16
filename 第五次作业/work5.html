@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#canvas{
+				border:1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		
+		context.beginPath();
+		context.moveTo(0,0);
+		context.lineTo(250,250);
+		context.lineTo(0,500);
+		context.fillStyle = '#67becf';
+		context.closePath();
+		context.fill();
+		
+		context.beginPath();
+		context.moveTo(0,0);
+		context.lineTo(250,250);
+		context.lineTo(500,0);
+		context.fillStyle = '#caff67';
+		context.closePath();
+		context.fill();
+
+		context.beginPath();
+		context.moveTo(500,500);
+		context.lineTo(250,500);
+		context.lineTo(500,250);
+		context.fillStyle = '#f6ca29';
+		context.closePath();
+		context.fill();
+		
+		context.beginPath();
+		context.moveTo(250,250);
+		context.lineTo(375,375);
+		context.lineTo(250,500);
+		context.lineTo(125,375);
+		context.fillStyle = '#c8bfe7';
+		context.closePath();
+		context.fill();
+		
+		context.beginPath();
+		context.moveTo(0,500);
+		context.lineTo(250,500);
+		context.lineTo(125,375);
+		context.fillStyle = '#fa8ecc';
+		context.closePath();
+		context.fill();
+		
+		context.beginPath();
+		context.moveTo(250,250);
+		context.lineTo(375,375);
+		context.lineTo(375,125);
+		context.fillStyle = '#f9f51a';
+		context.closePath();
+		context.fill();
+		
+		context.beginPath();
+		context.moveTo(375,125);
+		context.lineTo(375,375);
+		context.lineTo(500,250);
+		context.lineTo(500,0);
+		context.fillStyle = '#ef3d61';
+		context.closePath();
+		context.fill();
+	</script>
+</html>
